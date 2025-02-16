@@ -1,13 +1,4 @@
-FROM adoptopenjdk:11-jre-hotspot
-
-
-COPY geoserver.war /usr/local/geoserver/geoserver.war
-
-
-WORKDIR /usr/local/geoserver
-
-
+FROM tomcat:9-jre11
+COPY geoserver.war /usr/local/tomcat/webapps/geoserver.war
 EXPOSE 8080
-
-
-CMD ["java", "-jar", "geoserver.war"]
+CMD ["catalina.sh", "run"]
